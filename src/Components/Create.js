@@ -12,17 +12,7 @@ function Create({ phone, handlePhone, handleSendOtp }) {
           Create your free account now.
         </header>
         <section>
-          {/* <TextField
-            //label="Email or Mobile"
-            //variant="outlined"
-            
-            type="text"
-            placeholder="Email or Mobile"
-            value={phone}
-            onChange={(e) => {
-              handlePhone(e.target.value);
-            }}
-          /> */}
+         
           <input
             type="email or phone"
             placeholder="Email or Mobile"
