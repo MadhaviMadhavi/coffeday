@@ -17,14 +17,15 @@ function Registration() {
   return (
     <div>
       <div>
-        <Create
+        {/* <Create
           phone={phone}
           handlePhone={handlePhone}
           handleSendOtp={handleSendOtp}
         />
-        {/* <Verify phone={phone} handleSendOtp={handleSendOtp}/>
+        <Verify phone={phone} handleSendOtp={handleSendOtp}/>
         <Category/>
-        <Subcategory/> */}
+        <Subcategory/>  */}
+        
       </div>
     </div>
   );

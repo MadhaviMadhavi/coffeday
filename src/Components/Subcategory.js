@@ -13,48 +13,54 @@ function Subcategory() {
   return (
     <div className="card">
       <Header />
-      <main className="main">
+      <main className="cat_main">
         <header>
           <div>Choose sub category</div>
         </header>
-        <section>
+        <section  className="cat_section">
           <div className="flex">
             <div>
-              <BsBatteryFull />
-              <div>Fullstack</div>
+              <BsBatteryFull className="icon"  />
+              <div  className="font_10">Fullstack</div>
             </div>
             <div>
-              <SiPython />
-              <div>Python</div>
+              <SiPython className="icon" />
+              <div  className="font_10">Python</div>
             </div>
             <div>
-              <SiPhp />
-              <div>PHP</div>
+              <SiPhp className="icon" />
+              <div  className="font_10">PHP</div>
             </div>
             <div>
-              <DiDotnet />
-              <div>.NET</div>
+              <DiDotnet className="icon" />
+              <div  className="font_10">.NET</div>
             </div>
           </div>
           <div className="flex">
             <div>
-              <FaJava />
-              <div>Java</div>
+              <FaJava className="icon" />
+              <div  className="font_10">Java</div>
             </div>
             <div>
-              <SiScala />
-              <div>Scala</div>
+              <SiScala className="icon" />
+              <div  className="font_10">Scala</div>
             </div>
             <div>
-              <SiNodedotjs />
-              <div>Node JS</div>
+              <SiNodedotjs className="icon" />
+              <div  className="font_10">Node JS</div>
             </div>
             <div>
-              <MdOutlineDevicesOther />
-              <div>Other</div>
+              <MdOutlineDevicesOther className="icon" />
+              <div  className="font_10">Other</div>
             </div>
           </div>
         </section>
+        <footer
+        // className="category_footer"
+        >
+          <button className="capital btn_back">Back</button>
+          <button className="capital btn_next">Next</button>
+        </footer>
       </main>
       <Footer />
     </div>

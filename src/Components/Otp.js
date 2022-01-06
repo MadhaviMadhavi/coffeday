@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import OtpInput from "react-otp-input";
 
-export default function App({handleSendOtp}) {
+export default function App({ handleSendOtp }) {
   const [otp, setOtp] = useState("");
   const [counter, setCounter] = React.useState(0);
   // Third Attempts
@@ -18,6 +18,8 @@ export default function App({handleSendOtp}) {
   return (
     <div>
       <OtpInput
+        style={{ border: "1px solid lightgray" }}
+        className="inputOtp"
         onChange={handleChange}
         numInputs={5}
         value={otp}
@@ -29,7 +31,7 @@ export default function App({handleSendOtp}) {
         Verify Otp
       </button>
       <div>
-        <button onClick={handleSendOtp}>
+        <button onClick={handleSendOtp} className="resend">
           Resend OTP in 00:{counter > 9 ? counter : "0" + counter}
         </button>
       </div>

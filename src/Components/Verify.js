@@ -1,7 +1,7 @@
 import React from "react";
 import { Footer, Header } from "./Card";
-import Otp from './Otp'
-function Verify({ phone,handleSendOtp }) {
+import Otp from "./Otp";
+function Verify({ phone, handleSendOtp }) {
   const showStar = () => {
     let len = phone.length;
     let first = phone.substring(0, 1);
@@ -14,13 +14,25 @@ function Verify({ phone,handleSendOtp }) {
       <Header />
       <main className="main">
         <header>
-          <p>OTP has been sent successfully to {showStar()}</p>
-          <p>Please enter the same OTP below.</p>
+          <p className="font_12">
+            OTP has been sent successfully to {showStar()}
+          </p>
+          <p className="font_12">Please enter the same OTP below.</p>
         </header>
         <section>
-          <Otp handleSendOtp={handleSendOtp}/>
+          <Otp handleSendOtp={handleSendOtp} />
         </section>
       </main>
+      <footer className="otp_footer">
+        <p className="font_12">
+          Already user
+          <strong>
+            {/* <a href="#"> */}
+              <u> Sigin Now</u>
+            {/* </a> */}
+          </strong>
+        </p>
+      </footer>
       <Footer />
     </div>
   );

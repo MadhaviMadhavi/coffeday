@@ -1,66 +1,64 @@
 import React from "react";
 import { Footer, Header } from "./Card";
 import { AiOutlineFileSearch } from "react-icons/ai";
-import {BsGraphUp} from "react-icons/bs";
-import {GiDeathNote,GiHumanPyramid} from "react-icons/gi";
-import {MdDeveloperMode} from 'react-icons/md';
-import {FaRegHandshake} from 'react-icons/fa';
-import {AiOutlineCalculator} from 'react-icons/ai';
-import {MdOutlineDevicesOther} from 'react-icons/md';
-
+import { BsGraphUp } from "react-icons/bs";
+import { GiDeathNote, GiHumanPyramid } from "react-icons/gi";
+import { MdDeveloperMode } from "react-icons/md";
+import { FaRegHandshake } from "react-icons/fa";
+import { AiOutlineCalculator } from "react-icons/ai";
+import { MdOutlineDevicesOther } from "react-icons/md";
 
 function Category() {
   return (
     <div className="card">
       <Header />
-      <main className="main">
-        <sec-header>Choose a category</sec-header>
-        <section>
+      <main className="cat_main">
+        <header>Choose a category</header>
+        <section className="cat_section">
           <div className="flex">
             <div>
-              <MdDeveloperMode />
-              <div>Development</div>
+              <MdDeveloperMode className="icon" />
+              <div className="font_10">Developer</div>
             </div>
             <div>
-              <GiDeathNote />
-              <div>Designer</div>
+              <GiDeathNote className="icon" />
+              <div className="font_10">Designer</div>
             </div>
             <div>
-              <AiOutlineFileSearch />
-              <div>Testing</div>
+              <AiOutlineFileSearch className="icon" />
+              <div className="font_10">Testing</div>
             </div>
             <div>
-              <BsGraphUp />
-              <div>Marketing</div>
+              <BsGraphUp className="icon" />
+              <div className="font_10">Marketing</div>
             </div>
           </div>
-          <div  className="flex">
+          <div className="flex">
             <div>
-              <GiHumanPyramid />
-              <div>Recruitment</div>
+              <GiHumanPyramid className="icon" />
+              <div className="font_10">Recruitment</div>
             </div>
             <div>
-              <FaRegHandshake />
-              <div>Sales</div>
+              <FaRegHandshake className="icon" />
+              <div className="font_10">Sales</div>
             </div>
             <div>
-              <AiOutlineCalculator />
-              <div>Accountant</div>
+              <AiOutlineCalculator className="icon" />
+              <div className="font_10">Accountant</div>
             </div>
             <div>
-              <MdOutlineDevicesOther />
-              <div>Other</div>
+              <MdOutlineDevicesOther className="icon" />
+              <div className="font_10">Other</div>
             </div>
           </div>
         </section>
-        <sec-footer>
-          <div>
-            <button>Back</button>
-          </div>
-          <button>Next</button>
-        </sec-footer>
+        <footer
+        // className="category_footer"
+        >
+          <button className="capital btn_back">Back</button>
+          <button className="capital btn_next">Next</button>
+        </footer>
       </main>
-
       <Footer />
     </div>
   );

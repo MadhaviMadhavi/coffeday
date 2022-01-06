@@ -12,7 +12,7 @@ function Header() {
 function Footer() {
   return (
     <footer className="footer">
-      <div style={{ fontSize: "20px" }}>Download app and stay connected.</div>
+      <div className="font_10">Download app and stay connected:</div>
       <div className="footer_img">
         <img src="AppStore.JPG" alt="Here play store and apple store" />
         <img src="PlayStore.JPG" alt="Here play store and apple store" />

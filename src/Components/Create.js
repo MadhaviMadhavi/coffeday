@@ -9,11 +9,11 @@ function Create({ phone, handlePhone, handleSendOtp }) {
       <main className="main">
         <header className="font_12">
           {/* <img src="" alt="create" /> */}
-          Create your free account now.
+          <p> Create your free account now.</p>
         </header>
         <section>
-         
           <input
+            className="input"
             type="email or phone"
             placeholder="Email or Mobile"
             value={phone}
@@ -21,19 +21,18 @@ function Create({ phone, handlePhone, handleSendOtp }) {
               handlePhone(e.target.value);
             }}
           />
-                  
-            <button className="capital" onClick={handleSendOtp}>
-              Send otp
-            </button>
-          
+
+          <button className="capital" onClick={handleSendOtp}>
+            Send otp
+          </button>
         </section>
         <footer>
           <p className="font_12">
             Already user
             <strong>
-              <a href="#">
+              {/* <a href="#"> */}
                 <u> Sigin Now</u>
-              </a>
+              {/* </a> */}
             </strong>
           </p>
         </footer>
