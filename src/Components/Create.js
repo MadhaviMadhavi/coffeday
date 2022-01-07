@@ -22,7 +22,7 @@ function Create({ phone, handlePhone, handleSendOtp }) {
             }}
           />
 
-          <button className="capital" onClick={handleSendOtp}>
+          <button className="capital button" onClick={handleSendOtp}>
             Send otp
           </button>
         </section>

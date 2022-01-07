@@ -27,7 +27,7 @@ export default function App({ handleSendOtp }) {
         focusStyle="none"
         // separator={<span>-</span>}
       />
-      <button className="capital" onClick={handleVerify}>
+      <button className="capital button" onClick={handleVerify}>
         Verify Otp
       </button>
       <div>

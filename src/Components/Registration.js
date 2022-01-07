@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Bio from '../form-components/App'
 import Category from "./Category";
 import Create from "./Create";
 import Subcategory from "./Subcategory";
@@ -11,21 +12,22 @@ function Registration() {
     console.log(ph);
   };
   const handleSendOtp = () => {
-    console.log('resending otp')
+    console.log("resending otp");
     setSendOtp(true);
   };
   return (
     <div>
       <div>
-        {/* <Create
+        <Create
           phone={phone}
           handlePhone={handlePhone}
           handleSendOtp={handleSendOtp}
         />
-        <Verify phone={phone} handleSendOtp={handleSendOtp}/>
-        <Category/>
-        <Subcategory/>  */}
         
+        <Verify phone={phone} handleSendOtp={handleSendOtp} />
+        <Category />
+        <Subcategory />
+        {/* <Bio /> */}
       </div>
     </div>
   );
