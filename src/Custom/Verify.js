@@ -6,10 +6,10 @@ function Verify(props) {
 }
 const VerifyBody = ({ phone, handleSendOtp }) => {
   const showStar = () => {
-    let len = phone.length;
-    let first = phone.substring(0, 1);
-    let last = phone.substring(len - 2, len);
-    let star = phone.replace(phone.substring(2, len - 2), "*");
+    let len = phone?.phone.length;
+    let first = phone?.phone.substring(0, 1);
+    let last = phone?.phone.substring(len - 2, len);
+    let star = phone?.phone.replace(phone.substring(2, len - 2), "*");
     return first + star + last;
   };
   return (

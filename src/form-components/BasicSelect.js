@@ -13,21 +13,26 @@ export default function BasicSelect() {
   };
 
   return (
-    <FormControl fullWidth>
-      <InputLabel id="demo-simple-select-label">Age</InputLabel>
-      <Select
-          style={{ width: "30%" }}
-      //  fullWidth
-        labelId="demo-simple-select-label"
-        id="demo-simple-select"
-        value={age}
-        label="Age"
-        onChange={handleChange}
+    <FormControl   sx={{ m: 1, width: 350 }}>
+      <InputLabel id="demo-simple-select-label" 
       >
-        <MenuItem value={10}>Ten</MenuItem>
-        <MenuItem value={20}>Twenty</MenuItem>
-        <MenuItem value={30}>Thirty</MenuItem>
-      </Select>
+        * Age
+      </InputLabel>
+      <div>
+        <Select
+          style={{ width: "100%", marginTop: "10px" }}
+          //  fullWidth
+          labelId="demo-simple-select-label"
+          id="demo-simple-select"
+          value={age}
+          label="Age"
+          onChange={handleChange}
+        >
+          <MenuItem value={10}>Ten</MenuItem>
+          <MenuItem value={20}>Twenty</MenuItem>
+          <MenuItem value={30}>Thirty</MenuItem>
+        </Select>
+      </div>
     </FormControl>
   );
 }

@@ -7,7 +7,6 @@ import {
   Typography,
   Box,
 } from "@material-ui/core";
-import { Header, Footer } from "../Components/Card";
 import { FormInputText } from "./FormInputText";
 import { FormInputMultiCheckbox } from "./FormInputMultiCheckbox";
 import { FormInputSlider } from "./FormInputSlider";
@@ -20,6 +19,7 @@ import Select from "@mui/material/Select";
 import * as yup from "yup";
 import MultipleSelect from "./MultipleSelect";
 import BasicSelect from "./BasicSelect";
+import CustomCard from "../Custom/CustomCard";
 
 const defaultValues = {
   textValue: "",
@@ -61,11 +61,10 @@ export default function App() {
   ) => console.log(data);
 
   return (
-    <Paper>
-      <Header />
+    <div>
       <Typography variant="h5"> Complete your Bio </Typography>
 
-      <Typography variant="h6"> Note: * mark fiels are mandatory </Typography>
+      <Typography variant="h6"> Note: * mark fields are mandatory </Typography>
 
       <FormInputText name="name" control={control} label="* Name" type="text" />
       <FormInputText
@@ -82,11 +81,11 @@ export default function App() {
       />
       <TextField
         fullWidth
-        style={{ width: "60%", marginTop: "20px" }}
+        style={{ width: "60%", padding: "14px" }}
         id="outlined-basic"
         // size="small"
         variant="outlined"
-        label="Email Id Optional"
+        label="&nbsp; Email Id Optional"
         // id="email"
         name="email"
         type="email"
@@ -102,7 +101,7 @@ export default function App() {
       />
 
       <MuiPhoneNumber
-        style={{ width: "60%", marginTop: "20px" }}
+        style={{ width: "60%" }}
         placeholder="* Mobile No"
         fullWidth
         countryCodeEditable={false}
@@ -110,11 +109,12 @@ export default function App() {
         onChange={handleOnChange}
         variant="outlined"
       />
-      <Box sx={{ minWidth: 120 }}>
+      {/* <Box sx={{ minWidth: 120 }}> */}
+      <div>
         <FormControl
           fullwidth
-          style={{ width: "30%", marginTop: "20px" }}
-          //   variant="outlined"
+          style={{ width: "30%", margin: "20px 10px 0 0" }}
+          // variant="outlined"
         >
           <InputLabel id="demo-simple-select-required-label">
             * Gender
@@ -134,7 +134,7 @@ export default function App() {
         </FormControl>
         <FormControl
           style={{ width: "30%", marginTop: "20px" }}
-          variant="outlined"
+          // variant="outlined"
         >
           <InputLabel id="demo-simple-select-required-label">* Age</InputLabel>
           <Select
@@ -150,32 +150,20 @@ export default function App() {
             <MenuItem value={3}>03</MenuItem>
           </Select>
         </FormControl>
-      </Box>
-      <Paper
-        style={{
-          width: "60%",
-          margin: "10px auto",
-
-          height: "200px",
-          justifyContent: "space-between",
-          alignItems: "center",
-          textAlign: "center",
-        }}
-      >
-        <Typography>*Heading </Typography>
-        <div className="flex">
-          <BasicSelect />
-          <MultipleSelect />
-        </div>
-      </Paper>
-      <Button onClick={handleSubmit(onSubmit)} variant={"contained"}>
-        Submit
+      </div>
+    
+      {/* <Button onClick={handleSubmit(onSubmit)} variant={"contained"}>
+        Back
       </Button>
       <Button onClick={() => reset()} variant={"outlined"}>
-        Reset
-      </Button>
-      <Footer/>
-    </Paper>
-
+        Next
+      </Button> */}
+      <footer
+      // className="category_footer"
+      >
+        <button className="capital btn_back">Back</button>
+        <button className="capital btn_next">Next</button>
+      </footer>
+    </div>
   );
 }

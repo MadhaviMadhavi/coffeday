@@ -7,17 +7,9 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        {/* <Registration /> */}
+        <Registration />
         {/* <Bio/> */}
-        <Paper elevation={3}>
-          <Header />
-          <main>
-            <h1>Hello</h1>
-            <h2>Hello</h2>
-            <h2>Hello</h2>
-          </main>
-          <Footer />
-        </Paper>
+       
       </header>
     </div>
   );

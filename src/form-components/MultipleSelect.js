@@ -54,14 +54,17 @@ export default function MultipleSelect() {
   };
 
   return (
-    <FormControl sx={{ m: 1, width: 300 }}>
+    <FormControl
+      sx={{ m: 1, width: 800 }}
+      //fullWidth
+    >
       <InputLabel id="demo-multiple-name-label">
         {" "}
         *Dropdown Multiple Selection
       </InputLabel>
       <Select
         fullWidth
-        // style={{ width:"50%",marginTop: "20px" }}
+        style={{ width: "100%", marginTop: "10px" }}
         labelId="demo-multiple-name-label"
         id="demo-multiple-name"
         multiple

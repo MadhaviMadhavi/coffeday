@@ -1,9 +1,12 @@
 import React, { useState } from "react";
-import Bio from '../form-components/App'
-import Category from "./Category";
-import Create from "./Create";
-import Subcategory from "./Subcategory";
-import Verify from "./Verify";
+import Create from "../Custom/Create";
+import Verify from "../Custom/Verify";
+import Category from "../Custom/Category";
+import Subcategory from "../Custom/Subcategory";
+import Bio from "../Custom/Bio";
+import UploadPhoto from "../Custom/UploadPhoto";
+import ProjectDetails from "../Custom/ProjectDetails";
+
 function Registration() {
   const [phone, setPhone] = useState("");
   const [sendOtp, setSendOtp] = useState(false);
@@ -18,16 +21,17 @@ function Registration() {
   return (
     <div>
       <div>
-        <Create
+        {/* <Create
           phone={phone}
           handlePhone={handlePhone}
           handleSendOtp={handleSendOtp}
-        />
-        
-        <Verify phone={phone} handleSendOtp={handleSendOtp} />
-        <Category />
-        <Subcategory />
+        /> */}
+        {/* <Verify phone={phone} handleSendOtp={handleSendOtp} /> */}
+        {/* <Category /> */}
+        {/* <Subcategory />  */}
         {/* <Bio /> */}
+        {/* <UploadPhoto/> */}
+        <ProjectDetails/>
       </div>
     </div>
   );

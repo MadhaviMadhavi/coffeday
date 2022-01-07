@@ -2,7 +2,7 @@ import TextField from "@material-ui/core/TextField";
 import { Controller } from "react-hook-form";
 import React, { useState } from "react";
 
-export const FormInputText = ({ name, control, label,type }) => {
+export const FormInputText = ({ name, control, label, type }) => {
   const [value, setValue] = useState();
   return (
     // <FormInputText name={'textInput'} control={control} label={'Text Input'} />
@@ -11,14 +11,14 @@ export const FormInputText = ({ name, control, label,type }) => {
       control={control}
       render={({ field, fieldState, formState }) => (
         <TextField
-        type={type}
+          type={type}
           id="outlined-basic"
           fullWidth
-          style={{ width: "60%",marginTop:'20px' }}
+          style={{ width: "60%", padding: "14px" }}
           label={label}
           variant="outlined"
           value={value}
-        //   style={{textEmphasisColor: 'red'}}
+          //   style={{textEmphasisColor: 'red'}}
         />
       )}
     />
