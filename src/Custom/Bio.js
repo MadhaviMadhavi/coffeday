@@ -26,13 +26,14 @@ function Bio(props) {
 
   return (
     <div display="flex">
-      <CustomCard>{<BioBody props={props} />}</CustomCard>
+      <CustomCard>{BioBody(props)}</CustomCard>
       <div>
         <Paper
           style={{
             width: "80%",
             margin: "20px auto",
             height: "100px",
+            display: "none",
           }}
         >
           <Typography style={{ textAlign: "left", color: "gray" }}>

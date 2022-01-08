@@ -147,8 +147,14 @@ h1 {
   width: 80% !important;
 }
 .table_btn {
-  margin:'0 auto';
+  /* margin: "0 auto"; */
+  /* padding: 0 !important; */
+  text-align: center !important;
   width: 100% !important;
+  /* margin-top: 15px;
+  margin-left: 20px; */
+  margin-top: 4px;
+  margin-left: 50px;
 }
 .btn_next {
   width: 80% !important;
@@ -219,4 +225,16 @@ h1 {
 
 .tableCell {
   word-break: break-all;
+}
+
+.tableCell_footer {
+  /* width:100%;
+  display: flex !important;
+  align-items: space-between; */
+  padding: 0 !important;
+}
+
+.table_input {
+  border: none;
+  outline: none;
 }

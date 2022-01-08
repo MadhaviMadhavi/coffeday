@@ -20,7 +20,7 @@ import * as yup from "yup";
 import MultipleSelect from "./MultipleSelect";
 import BasicSelect from "./BasicSelect";
 import CustomCard from "../Custom/CustomCard";
-
+import { useNavigate } from "react-router-dom";
 const defaultValues = {
   textValue: "",
   radioValue: "",
@@ -31,6 +31,13 @@ const defaultValues = {
 };
 
 export default function App() {
+  let history = useNavigate();
+  const handleBioBack = () => {
+    history("../subcategory");
+  };
+  const handleBioNext = () => {
+    history("../photos");
+  };
   function handleOnChange(value) {
     // this.setState({
     //    phone: value
@@ -151,7 +158,7 @@ export default function App() {
           </Select>
         </FormControl>
       </div>
-    
+
       {/* <Button onClick={handleSubmit(onSubmit)} variant={"contained"}>
         Back
       </Button>
@@ -161,8 +168,12 @@ export default function App() {
       <footer
       // className="category_footer"
       >
-        <button className="capital btn_back">Back</button>
-        <button className="capital btn_next">Next</button>
+        <button className="capital btn_back" onClick={handleBioBack}>
+          Back
+        </button>
+        <button className="capital btn_next" onClick={handleBioNext}>
+          Next
+        </button>
       </footer>
     </div>
   );

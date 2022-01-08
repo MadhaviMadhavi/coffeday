@@ -1,4 +1,4 @@
-import * as React from "react";
+import React, { useState } from "react";
 import IconButton from "@mui/material/IconButton";
 import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
@@ -9,37 +9,49 @@ import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
 
 function Row(props) {
   const { row } = props;
+  const handleCellEdit = (value) => {
+    console.log(value);
+  };
 
   return (
     <TableRow>
-      <TableCell className="tableCell">{row.name}</TableCell>
+      <TableCell className="tableCell">1234</TableCell>
+      <TableCell className="tableCell" editable="true">
+        <input
+          className="table_input"
+          value={row.name}
+          name="name"
+          onChange={(e) => {
+            handleCellEdit(e.target.value);
+          }}
+        />
+        {/* {row.name} */}
+      </TableCell>
       <TableCell className="tableCell">
-        <button >{row.delete}</button>
+        <button>X</button>
       </TableCell>
     </TableRow>
   );
 }
 
-const rows = [
-  { name: "Project1", delete: "X" },
-  {
-    name: "Project100Project100Project100Project100Project100Project100Project100Project100Project100Project100Project100Project100Project100Project100Project100Project100Project100Project100Project100Project100Project100Project100Project100Project100Project100Project100Project100Project100Project100Project100   ",
-    delete: "X",
-  },
-];
-
 export default function CollapsibleTable() {
-  rows.map((item) => {
-    console.log(item);
-  });
+  const [rows, setRows] = useState([]);
+  const [input, setInput] = useState();
   const [open, setOpen] = React.useState(true);
+  const handleAddItem = () => {
+    let item = {
+      name: input,
+    };
+    setRows([...rows, item]);
+  };
   return (
     <Table
       aria-label="collapsible table"
       style={{ border: "1px solid lightgray", width: "80%", margin: "0 auto" }}
     >
       <TableBody>
-        <TableRow style={{ height: "10px" }}>
+        <TableRow>
+          <TableCell>Id</TableCell>
           <TableCell>Title</TableCell>
           <TableCell className="tableCell">
             <IconButton aria-label="expand row" onClick={() => setOpen(!open)}>
@@ -50,9 +62,21 @@ export default function CollapsibleTable() {
         {open
           ? rows && rows.map((row) => <Row key={row.name} row={row} />)
           : ""}
-        <TableRow style={{ borderBottom: "1px sloid red" }}>
+        <TableRow className="tableCell_footer">
           <TableCell>
-            <button className="capital btn_back table_btn">Add New </button>
+            <input
+              type="text"
+              className="input"
+              onChange={(e) => setInput(e.target.value)}
+            />
+          </TableCell>
+          <TableCell className="tableCell_footer">
+            <button
+              className="capital btn_back table_btn"
+              onClick={handleAddItem}
+            >
+              Add New{" "}
+            </button>
           </TableCell>
         </TableRow>
       </TableBody>

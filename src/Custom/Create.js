@@ -1,11 +1,15 @@
 import React from "react";
 import CustomCard from "./CustomCard";
-
+import { useNavigate } from "react-router-dom";
 function Create(props) {
-  return <CustomCard>{<CreateBody props={props} />}</CustomCard>;
+  return <CustomCard>{CreateBody(props)}</CustomCard>;
 }
-
-function CreateBody({ phone, handlePhone, handleSendOtp }) {
+function CreateBody(props) {
+  let history = useNavigate();
+  const { phone, handlePhone, handleSendOtp } = props;
+  console.log(props);
+  console.log("props");
+  console.log(phone, handlePhone, handleSendOtp);
   return (
     <main className="main">
       <header className="font_12">
@@ -23,7 +27,7 @@ function CreateBody({ phone, handlePhone, handleSendOtp }) {
           }}
         />
 
-        <button className="capital button" onClick={handleSendOtp}>
+        <button className="capital button" onClick={() => history("/verify")}>
           Send otp
         </button>
       </section>

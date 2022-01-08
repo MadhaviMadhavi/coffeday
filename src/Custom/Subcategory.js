@@ -5,11 +5,18 @@ import { BsBatteryFull } from "react-icons/bs";
 import { DiDotnet } from "react-icons/di";
 import { MdOutlineDevicesOther } from "react-icons/md";
 import CustomCard from "./CustomCard";
-
+import { useNavigate } from "react-router-dom";
 function Subcategory(props) {
-  return <CustomCard>{<SubcategoryBody props={props} />}</CustomCard>;
+  return <CustomCard>{SubcategoryBody(props)}</CustomCard>;
 }
 function SubcategoryBody(props) {
+  let history = useNavigate();
+  const handleSubCategoryBack = () => {
+    history("../category");
+  };
+  const handleSubCategoryNext = () => {
+    history("../bio");
+  };
   return (
     <main className="cat_main">
       <header>
@@ -56,8 +63,12 @@ function SubcategoryBody(props) {
       <footer
       // className="category_footer"
       >
-        <button className="capital btn_back">Back</button>
-        <button className="capital btn_next">Next</button>
+        <button className="capital btn_back" onClick={handleSubCategoryBack}>
+          Back
+        </button>
+        <button className="capital btn_next" onClick={handleSubCategoryNext}>
+          Next
+        </button>
       </footer>
     </main>
   );

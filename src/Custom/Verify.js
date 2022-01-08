@@ -2,14 +2,27 @@ import React from "react";
 import CustomCard from "../Custom/CustomCard";
 import Otp from "./Otp";
 function Verify(props) {
-  return <CustomCard>{<VerifyBody props={props} />}</CustomCard>;
+  console.log(props, "verifyprops");
+  return (
+    <CustomCard>
+      {VerifyBody(
+        // props.phone,
+        // props.otpVerify,
+        // props.handleVerifyOtp,
+        // props.handleResendOtp
+        props
+      )}
+    </CustomCard>
+  );
 }
-const VerifyBody = ({ phone, handleSendOtp }) => {
+const VerifyBody = (props) => {
+  const { phone, otpVerify, handleVerifyOtp, handleResendOtp } = props;
+  console.log(phone, "verifyBodyProps");
   const showStar = () => {
-    let len = phone?.phone.length;
-    let first = phone?.phone.substring(0, 1);
-    let last = phone?.phone.substring(len - 2, len);
-    let star = phone?.phone.replace(phone.substring(2, len - 2), "*");
+    let len = phone && phone.length;
+    let first = phone && phone.substring(0, 1);
+    let last = phone && phone.substring(len - 2, len);
+    let star = phone && phone.replace(phone.substring(2, len - 2), "*");
     return first + star + last;
   };
   return (
@@ -21,7 +34,11 @@ const VerifyBody = ({ phone, handleSendOtp }) => {
         <p className="font_12">Please enter the same OTP below.</p>
       </header>
       <section>
-        <Otp handleSendOtp={handleSendOtp} />
+        <Otp
+          otpVerify={otpVerify}
+          handleVerifyOtp={handleVerifyOtp}
+          handleResendOtp={handleResendOtp}
+        />
       </section>
       <footer className="otp_footer">
         <p className="font_12">

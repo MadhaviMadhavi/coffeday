@@ -7,11 +7,20 @@ import { FaRegHandshake } from "react-icons/fa";
 import { AiOutlineCalculator } from "react-icons/ai";
 import { MdOutlineDevicesOther } from "react-icons/md";
 import CustomCard from "../Custom/CustomCard";
+import { useNavigate } from "react-router-dom";
 
 function Category(props) {
-  return <CustomCard>{<CategoryBody props={props} />}</CustomCard>;
+  return <CustomCard>{CategoryBody(props)}</CustomCard>;
 }
 function CategoryBody(props) {
+  let history = useNavigate();
+  //{ handleCategoryBack, handleCategoryNext }
+  const handleCategoryBack = () => {
+    history("../verify");
+  };
+  const handleCategoryNext = () => {
+    history("../subcategory");
+  };
   return (
     <main className="cat_main">
       <header>Choose a category</header>
@@ -56,8 +65,12 @@ function CategoryBody(props) {
       <footer
       // className="category_footer"
       >
-        <button className="capital btn_back">Back</button>
-        <button className="capital btn_next">Next</button>
+        <button className="capital btn_back" onClick={handleCategoryBack}>
+          Back
+        </button>
+        <button className="capital btn_next" onClick={handleCategoryNext}>
+          Next
+        </button>
       </footer>
     </main>
   );
