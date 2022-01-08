@@ -146,6 +146,10 @@ h1 {
   color: black;
   width: 80% !important;
 }
+.table_btn {
+  margin:'0 auto';
+  width: 100% !important;
+}
 .btn_next {
   width: 80% !important;
 }
@@ -181,11 +185,11 @@ h1 {
 
 .photo_paper {
   /* box-shadow: 0 0 3px 3px lightgray !important; */
-  border:1px solid lightgray !important;
+  border: 1px solid lightgray !important;
   width: 130px;
   height: 120px;
   border-radius: 10px;
-  
+
   margin: 10px;
   cursor: pointer;
 }
@@ -210,5 +214,9 @@ h1 {
   text-align: center;
   font-size: 70px;
   font-weight: bold;
-  margin:auto
+  margin: auto;
+}
+
+.tableCell {
+  word-break: break-all;
 }
