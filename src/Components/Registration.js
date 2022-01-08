@@ -10,6 +10,7 @@ import EducationalDetails from "../Custom/EducationalDetails";
 import SkillDetails from "../Custom/SkillDetails";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import FinalSave from "../Custom/FinalSave";
+import NotFoundPage from "../Custom/NotFoundPage";
 
 function Registration() {
   const [createPage, setCreatePage] = useState(true);
@@ -86,7 +87,8 @@ function Registration() {
         <Route exact path="/skills" element={<SkillDetails />}></Route>
         <Route exact path="/education" element={<EducationalDetails />}></Route>
         <Route exact path="/saveDetails" element={<FinalSave />}></Route>
-      </Routes>
+        <Route path="/*" element={<NotFoundPage />} />
+        </Routes>
     </BrowserRouter>
     // <div>
     //   <div>
