@@ -46,6 +46,13 @@ function Registration() {
   const handleEducationNext = (items) => {
     setEducation(items);
   };
+  const handleFinalSubmit = () => {
+    setCategories({});
+    setSubCategories({});
+    setProjects([]);
+    setSkills([]);
+    setEducation([]);
+  };
   return (
     <BrowserRouter>
       <Routes>
@@ -100,7 +107,11 @@ function Registration() {
             />
           }
         ></Route>
-        <Route exact path="/saveDetails" element={<FinalSave />}></Route>
+        <Route
+          exact
+          path="/saveDetails"
+          element={<FinalSave handleFinalSubmit={handleFinalSubmit} />}
+        ></Route>
         <Route path="/*" element={<NotFoundPage />} />
       </Routes>
     </BrowserRouter>

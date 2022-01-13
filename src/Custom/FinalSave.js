@@ -2,11 +2,12 @@ import React from "react";
 import CustomCard from "./CustomCard";
 import { useNavigate } from "react-router-dom";
 
-function FinalSave() {
+function FinalSave(props) {
   let history = useNavigate();
 
   const handleBackHome = () => {
     history("../");
+    props.handleFinalSubmit();
   };
   return (
     <CustomCard>
