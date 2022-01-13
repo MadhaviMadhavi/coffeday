@@ -1,23 +1,20 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import CustomCard from "../Custom/CustomCard";
 import Otp from "./Otp";
 function Verify(props) {
-  console.log(props, "verifyprops");
-  return (
-    <CustomCard>
-      {VerifyBody(
-        // props.phone,
-        // props.otpVerify,
-        // props.handleVerifyOtp,
-        // props.handleResendOtp
-        props
-      )}
-    </CustomCard>
-  );
+  let history = useNavigate();
+  const handleVerify = () => {
+    /// if true call verify back end
+    //handleVerifyOtp();
+    //console.log(history);
+    //history.replace('');
+    history("../category");
+  };
+  return <CustomCard>{VerifyBody(props, handleVerify)}</CustomCard>;
 }
-const VerifyBody = (props) => {
+const VerifyBody = (props, handleVerify) => {
   const { phone, otpVerify, handleVerifyOtp, handleResendOtp } = props;
-  console.log(phone, "verifyBodyProps");
   const showStar = () => {
     let len = phone && phone.length;
     let first = phone && phone.substring(0, 1);
@@ -35,6 +32,7 @@ const VerifyBody = (props) => {
       </header>
       <section>
         <Otp
+          handleVerify={handleVerify}
           otpVerify={otpVerify}
           handleVerifyOtp={handleVerifyOtp}
           handleResendOtp={handleResendOtp}

@@ -4,6 +4,8 @@ p {
 }
 .flex {
   display: flex;
+  align-items: flex;
+  justify-content: space-around;
 }
 
 .capital {
@@ -154,7 +156,9 @@ h1 {
   /* margin-top: 15px;
   margin-left: 20px; */
   margin-top: 4px;
-  margin-left: 50px;
+  background-color: black;
+  color: white;
+  /* margin-left: 50px; */
 }
 .btn_next {
   width: 80% !important;
@@ -173,6 +177,16 @@ h1 {
   cursor: pointer;
 }
 
+.icon_selected {
+  padding: 10px;
+  border: 0.3px solid gray;
+  margin-right: 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 2px 1px lightgray;
+  cursor: pointer;
+  background: black;
+  color: white;
+}
 .cat_main {
   padding: 20px;
 }
@@ -224,6 +238,7 @@ h1 {
 }
 
 .tableCell {
+  word-wrap: break-word;
   word-break: break-all;
 }
 

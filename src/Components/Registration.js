@@ -11,84 +11,98 @@ import SkillDetails from "../Custom/SkillDetails";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import FinalSave from "../Custom/FinalSave";
 import NotFoundPage from "../Custom/NotFoundPage";
-
 function Registration() {
-  const [createPage, setCreatePage] = useState(true);
-  const [phone, setPhone] = useState("");
-  const [sendOtp, setSendOtp] = useState(false);
-  const [resendOtp, setResendOtp] = useState(false);
-  const [otpVerify, setOtpVerify] = useState(false);
-
-  const [category, setCategory] = useState(false);
-  const [catBack, setCatBack] = useState(false);
-  const [catNext, setCatNext] = useState(false);
-
-  const [subCategory, setSubCategory] = useState(false);
-  const [subcatBack, setSubCatBack] = useState(false);
-  const [subcatNext, setSubCatNext] = useState(false);
-
+  const [categories, setCategories] = useState({});
+  const [subCategories, setSubCategories] = useState({});
   const [bio, setBio] = useState(false);
-  const [bioBack, setBioBack] = useState(false);
-  const [bioNext, setBioNext] = useState(false);
-
   const [photo, setPhoto] = useState(false);
-  const [photoBack, setPhotoBack] = useState(false);
-  const [photoNext, setPhotoNext] = useState(false);
+  const [projects, setProjects] = useState([]);
+  const [skills, setSkills] = useState([]);
+  const [education, setEducation] = useState([]);
+  const [finalObject, setFinalObject] = useState({
+    categories: {},
+    subCategories: {},
+    bio: {},
+    photos: {},
+    project: [],
+    skills: [],
+    education: [],
+  });
 
-  const [project, setProject] = useState(false);
-  const [projectBack, setProjectBack] = useState(false);
-  const [projectNext, setProjectNext] = useState(false);
-
-  const [skill, setSkill] = useState(false);
-  const [skillBack, setSkillBack] = useState(false);
-  const [skillNext, setSkillNext] = useState(false);
-
-  const [edu, setEdu] = useState(false);
-  const [eduBack, setEduBack] = useState(false);
-  const [eduNext, setEduNext] = useState(false);
-
-  const handlePhone = (ph) => {
-    setPhone(ph);
-    console.log(ph);
+  const handleCategoryNext = (items) => {
+    console.log(items);
+    setCategories(items);
   };
-  const handleSendOtp = () => {
-    setSendOtp(!sendOtp);
-    setCreatePage(false);
-    console.log("resending otp");
+  const handleSubCategoryNext = (items) => {
+    console.log(items);
+    setSubCategories(items);
   };
-  const handleResendOtp = () => {
-    console.log("resend the otp");
-    setResendOtp(!resendOtp);
-    setCreatePage(false);
+  const handleProjectsNext = (items) => {
+    setProjects(items);
   };
-  const handleVerifyOtp = () => {
-    setOtpVerify(!otpVerify);
-    setSendOtp(false);
-    setCreatePage(false);
+  const handleSkillsNext = (items) => {
+    setSkills(items);
   };
-  const handleCategoryBack = () => {
-    //setSendOtp(false);
-    setOtpVerify(true);
-  };
-  const handleCategoryNext = () => {
-    setOtpVerify(false);
-    //setCategory();
+  const handleEducationNext = (items) => {
+    setEducation(items);
   };
   return (
     <BrowserRouter>
       <Routes>
         <Route exact path="/" element={<Create />}></Route>
         <Route exact path="/verify" element={<Verify />}></Route>
-        <Route exact path="/category" element={<Category />}></Route>
-        <Route exact path="/subcategory" element={<Subcategory />}></Route>
+        <Route
+          exact
+          path="/category"
+          element={
+            <Category
+              handleCategoryNext={handleCategoryNext}
+              categories={categories}
+            />
+          }
+        ></Route>
+        <Route
+          exact
+          path="/subcategory"
+          element={
+            <Subcategory
+              handleSubCategoryNext={handleSubCategoryNext}
+              subCategories={subCategories}
+            />
+          }
+        ></Route>
         <Route exact path="/bio" element={<Bio />}></Route>
         <Route exact path="/photos" element={<UploadPhoto />}></Route>
-        <Route exact path="/projects" element={<ProjectDetails />}></Route>
-        <Route exact path="/skills" element={<SkillDetails />}></Route>
-        <Route exact path="/education" element={<EducationalDetails />}></Route>
+        <Route
+          exact
+          path="/projects"
+          element={
+            <ProjectDetails
+              projects={projects}
+              handleProjects={handleProjectsNext}
+            />
+          }
+        ></Route>
+        <Route
+          exact
+          path="/skills"
+          element={
+            <SkillDetails skills={skills} handleSkillsNext={handleSkillsNext} />
+          }
+        ></Route>
+        <Route
+          exact
+          path="/education"
+          element={
+            <EducationalDetails
+              education={education}
+              handleEducationNext={handleEducationNext}
+            />
+          }
+        ></Route>
         <Route exact path="/saveDetails" element={<FinalSave />}></Route>
         <Route path="/*" element={<NotFoundPage />} />
-        </Routes>
+      </Routes>
     </BrowserRouter>
     // <div>
     //   <div>

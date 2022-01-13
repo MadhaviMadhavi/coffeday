@@ -3,8 +3,6 @@ import OtpInput from "react-otp-input";
 import { useNavigate } from "react-router-dom";
 
 export default function Otp(props) {
-  let history = useNavigate();
-  console.log(props);
   const { handleVerifyOtp, handleResendOtp } = props;
   const [otp, setOtp] = useState("");
   const [counter, setCounter] = React.useState(0);
@@ -15,14 +13,6 @@ export default function Otp(props) {
     return () => clearInterval(timer);
   }, [counter]);
   const handleChange = (otp) => setOtp(otp);
-  const handleVerify = () => {
-    /// if true call verify back end
-    //handleVerifyOtp();
-    console.log(history);
-    //history.replace('');
-    history("../category");
-  };
-
   return (
     <div>
       <OtpInput
@@ -35,7 +25,7 @@ export default function Otp(props) {
         focusStyle="none"
         // separator={<span>-</span>}
       />
-      <button className="capital button" onClick={() => handleVerify()}>
+      <button className="capital button" onClick={() => props.handleVerify()}>
         Verify Otp
       </button>
       <div>

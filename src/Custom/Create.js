@@ -7,9 +7,6 @@ function Create(props) {
 function CreateBody(props) {
   let history = useNavigate();
   const { phone, handlePhone, handleSendOtp } = props;
-  console.log(props);
-  console.log("props");
-  console.log(phone, handlePhone, handleSendOtp);
   return (
     <main className="main">
       <header className="font_12">

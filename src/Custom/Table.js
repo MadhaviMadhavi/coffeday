@@ -6,43 +6,82 @@ import TableCell from "@mui/material/TableCell";
 import TableRow from "@mui/material/TableRow";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
+import CheckIcon from "@mui/icons-material/Check";
+import ClearIcon from "@mui/icons-material/Clear";
 
 function Row(props) {
   const { row } = props;
+  const [editName, setEditName] = useState(row ? row.name : "");
+  const [onChange, setOnChange] = useState(false);
   const handleCellEdit = (value) => {
-    console.log(value);
+    setEditName(value);
   };
 
   return (
     <TableRow>
-      <TableCell className="tableCell">1234</TableCell>
+      <TableCell className="tableCell">{props.index + 1}</TableCell>
       <TableCell className="tableCell" editable="true">
-        <input
+        <textarea
+          wrap="soft"
+          maxlength="10"
           className="table_input"
-          value={row.name}
+          value={editName}
           name="name"
+          onClick={() => {
+            setOnChange(true);
+          }}
           onChange={(e) => {
             handleCellEdit(e.target.value);
           }}
         />
-        {/* {row.name} */}
+        {onChange ? (
+          <div>
+            <CheckIcon
+              onClick={() => {
+                setOnChange(false);
+                let obj = {
+                  id: row.id,
+                  name: editName,
+                };
+                props.handleEdit(obj);
+                console.log(obj);
+              }}
+            />
+            <ClearIcon
+              onClick={() => {
+                setEditName(row.name);
+                setOnChange(false);
+              }}
+            />
+          </div>
+        ) : (
+          ""
+        )}
       </TableCell>
       <TableCell className="tableCell">
-        <button>X</button>
+        <ClearIcon
+          onClick={() => {
+            props.handleDelete(row);
+          }}
+        />
       </TableCell>
     </TableRow>
   );
 }
 
-export default function CollapsibleTable() {
-  const [rows, setRows] = useState([]);
+export default function CollapsibleTable(props) {
   const [input, setInput] = useState();
   const [open, setOpen] = React.useState(true);
-  const handleAddItem = () => {
-    let item = {
-      name: input,
-    };
-    setRows([...rows, item]);
+  const handleAddItem = (e) => {
+    e.preventDefault();
+    if (input) {
+      let item = {
+        id: new Date().getTime(),
+        name: input,
+      };
+      props.handleItems(item);
+      setInput("");
+    }
   };
   return (
     <Table
@@ -60,24 +99,37 @@ export default function CollapsibleTable() {
           </TableCell>
         </TableRow>
         {open
-          ? rows && rows.map((row) => <Row key={row.name} row={row} />)
+          ? props.items.length > 0 &&
+            props.items.map((row, index) => (
+              <Row
+                key={row.name}
+                row={row}
+                index={index}
+                handleItems={props.handleItems}
+                handleEdit={props.handleEdit}
+                handleDelete={props.handleDelete}
+              />
+            ))
           : ""}
         <TableRow className="tableCell_footer">
           <TableCell>
-            <input
-              type="text"
-              className="input"
-              onChange={(e) => setInput(e.target.value)}
-            />
+            <form onSubmit={handleAddItem}>
+              <input
+                type="text"
+                className="input"
+                value={input}
+                onChange={(e) => setInput(e.target.value)}
+              />
+
+              <button
+                className="capital btn_back table_btn"
+                onClick={(e) => handleAddItem(e)}
+              >
+                Add New{" "}
+              </button>
+            </form>
           </TableCell>
-          <TableCell className="tableCell_footer">
-            <button
-              className="capital btn_back table_btn"
-              onClick={handleAddItem}
-            >
-              Add New{" "}
-            </button>
-          </TableCell>
+          <TableCell></TableCell>
         </TableRow>
       </TableBody>
     </Table>
